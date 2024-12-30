@@ -6,6 +6,9 @@ import spring_init.spring_init.repository.MemoryMemberRepository;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class MemberService {
 
 	private final MemberRepository memberRepository;
@@ -16,7 +19,7 @@ public class MemberService {
 
 	public Long join(Member member) {
 		// 같은 이름이 있는 중복 회원X
-		validateDuplicateMember(member);
+		validateDuplicateMember(member); // ctrl + T 단축키로 메소드 이동
 		memberRepository.save(member);
 		return member.getId();
 	}
